@@ -1,0 +1,110 @@
+.card {
+  width: var(--card-width);
+  height: var(--card-height);
+  border-top-left-radius: var(--card-border-radius);
+  border-top-right-radius: var(--card-border-radius);
+  border: 0 solid;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.half {
+  width: var(--half-width);
+  height: var(--half-height);
+  border-top-left-radius: var(--half-border-radius);
+  border-top-right-radius: var(--half-border-radius);
+  border-width:1px 1px 0.5px 1px;
+  border-style: solid;
+  position: relative;
+  overflow: hidden;
+}
+
+.color {
+  width: var(--color-width);
+  height: var(--color-height);
+  border-radius: var(--card-border-radius);
+  display: flex;
+  justify-content: center;
+  border: 0;
+  border-style: solid;
+  margin: 0;
+  position: absolute;
+}
+
+.color-container {
+  width: var(--color-container-width);
+  border-radius: var(--color-container-border-radius);
+  border: 0;
+  border-style: solid;
+  background-color: rgba(255, 255, 255, 0.4);
+  position: absolute;
+  display: flex;
+}
+
+.image {
+  background-color: transparent;
+  position: relative;
+  /* transform: translate3d(0px, 0px, 0px) !important; */
+}
+
+.color-image{
+  height: 80%;
+  margin: auto;
+}
+
+.het-left {
+  top: var(--het-left-top);
+  height: var(--het-left-height);
+}
+
+.het-right {
+  top: var(--het-right-top);
+  height: var(--het-right-height);
+}
+
+.nyolc {
+  top: var(--nyolc-top);
+  height: var(--nyolc-height);
+}
+
+.kilenc-left {
+  top: var(--kilenc-left-top);
+  height: var(--kilenc-right-top);
+}
+
+.kilenc-right {
+  top: var(--kilenc-right-top);
+  height: var(--kilenc-right-height);
+}
+
+.tiz {
+  top: var(--tiz-top);
+  height: var(--tiz-height);
+}
+
+.number {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding-top: 2mm;
+  padding-left: 1mm;
+  font-size: 8mm;
+  text-shadow:
+    1px -1px 0 #ffffff,
+    0   -1px 0 #ffffff,
+     1px -1px 0 #ffffff,
+     1px  0   0 #ffffff,
+     1px  1px 0 #ffffff,
+     0    1px 0 #ffffff,
+     -1px  1px 0 #ffffff,
+    -1px  0   0 #ffffff;
+    color: rgb(0, 0, 0);
+    font-weight: 600;
+    font-family: 'Times New Roman', Times, serif;
+    min-width: 10mm;
+    text-align: center;
+    transform: scale(0.5);
+    transform-origin: top left;
+  }

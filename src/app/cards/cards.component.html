@@ -1,0 +1,86 @@
+<mat-spinner *ngIf="!isLoaded"></mat-spinner>
+<div *ngIf="isLoaded" class="container">
+  <div class="figure-container">
+    <div class="card-border" [ngSwitch]="cardsFiguresColor.figure">
+      <div #element id="card">
+        <div class="top">
+          <app-figure-cards
+            *ngSwitchCase="'also'"
+            [cardIn]="card"
+          ></app-figure-cards>
+          <app-figure-cards
+            *ngSwitchCase="'felso'"
+            [cardIn]="card"
+          ></app-figure-cards>
+          <app-figure-cards
+            *ngSwitchCase="'kiraly'"
+            [cardIn]="card"
+          ></app-figure-cards>
+          <app-number-cards
+            *ngSwitchCase="'vii'"
+            [cardIn]="card"
+          ></app-number-cards>
+          <app-number-cards
+            *ngSwitchCase="'viii'"
+            [cardIn]="card"
+          ></app-number-cards>
+          <app-number-cards
+            *ngSwitchCase="'ix'"
+            [cardIn]="card"
+          ></app-number-cards>
+          <app-number-cards
+            *ngSwitchCase="'x'"
+            [cardIn]="card"
+          ></app-number-cards>
+          <app-figure-cards
+            *ngSwitchCase="'asz'"
+            [cardIn]="card"
+          ></app-figure-cards>
+          <app-others
+            *ngSwitchCase="'others'"
+            [cardIn]="card">
+          </app-others>
+        </div>
+        <div class="bottom" *ngIf="card.color != 'back'">
+          <app-figure-cards
+            *ngSwitchCase="'also'"
+            [cardIn]="card"
+          ></app-figure-cards>
+          <app-figure-cards
+            *ngSwitchCase="'felso'"
+            [cardIn]="card"
+          ></app-figure-cards>
+          <app-figure-cards
+            *ngSwitchCase="'kiraly'"
+            [cardIn]="card"
+          ></app-figure-cards>
+          <app-number-cards
+            *ngSwitchCase="'vii'"
+            [cardIn]="card"
+          ></app-number-cards>
+          <app-number-cards
+            *ngSwitchCase="'viii'"
+            [cardIn]="card"
+          ></app-number-cards>
+          <app-number-cards
+            *ngSwitchCase="'ix'"
+            [cardIn]="card"
+          ></app-number-cards>
+          <app-number-cards
+            *ngSwitchCase="'x'"
+            [cardIn]="card"
+          ></app-number-cards>
+          <app-figure-cards
+            *ngSwitchCase="'asz'"
+            [cardIn]="card"
+          ></app-figure-cards>
+          <app-others
+            *ngSwitchCase="'others'"
+            [cardIn]="card">
+          </app-others>
+        </div>
+      </div>
+    </div>
+  </div>
+  <app-panel [card]="card" [originalCard]="cardsFiguresColor"></app-panel>
+</div>

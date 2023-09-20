@@ -1,0 +1,14 @@
+<nav>
+  <ul>
+    <li><a routerLink="/">Home</a></li>
+    <li *ngIf="authService.getUser()">
+      <a routerLink="/profile"></a>
+    </li>
+    <li *ngIf="!(authService.getUser())">
+      <a routerLink="/login">Login</a>
+    </li>
+    <li *ngIf="authService.getUser()">
+      <button (click)="logout()">Logout</button>
+    </li>
+  </ul>
+</nav>

@@ -1,0 +1,6 @@
+.display-container {
+  /* margin: -65% -25% -50% -25%; */
+  transform: scale(0.1);
+  transform-origin: top;
+  width: 100%  !important;
+}

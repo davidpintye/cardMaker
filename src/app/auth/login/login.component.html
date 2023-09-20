@@ -1,0 +1,12 @@
+<h1>Bejelentkezés</h1>
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+  <mat-form-field appearance="fill">
+    <mat-label>Email:</mat-label>
+    <input type="email" matInput id="email" formControlName="email" />
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label for="password">Jelszó:</mat-label>
+    <input type="password" matInput id="password" formControlName="password" />
+  </mat-form-field>
+  <button type="submit" [disabled]="loginForm.invalid" mat-flat-button>Login</button>
+</form>

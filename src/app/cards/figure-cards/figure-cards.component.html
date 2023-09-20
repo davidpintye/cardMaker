@@ -1,0 +1,44 @@
+<div class="card" *ngIf="card">
+  <div class="inner-border">
+    <div class="half" [ngSwitch]="card.figure" #half>
+      <img class="image"
+        [src]="card.imgSrc"
+        alt=""
+        [ngStyle]="{'width': card.width + '%', 'top': card.top*this.scale + 'px', 'left': card.left*this.scale + 'px'}"
+        draggable="true"
+        (mousedown)="onMouseDown($event)"
+        (mouseup)="onMouseUp()"
+        (touchstart)="onTouchStart($event)"
+        (touchend)="onTouchEnd()"
+        (wheel) = "onWheel($event)"
+        #image>
+
+      <div *ngSwitchCase="'also'" class="color also">
+        <img class="color-image" [src]="'../../../assets/'+card.color+'.png'">
+      </div>
+
+      <div *ngSwitchCase="'felso'" class="color felso">
+        <img class="color-image" [src]="'../../../assets/'+card.color+'.png'">
+      </div>
+
+      <div *ngSwitchCase="'kiraly'">
+        <div class="color felso">
+          <img class="color-image" [src]="'../../../assets/'+card.color+'.png'">
+        </div>
+        <div class="color kiraly">
+          <img class="crown-image" src="../../../assets/Crown.png">
+        </div>
+      </div>
+
+      <div *ngSwitchCase="'asz'">
+        <div class="color asz-left">
+          <img class="color-image" [src]="'../../../assets/'+card.color+'.png'">
+        </div>
+        <div class="color asz-right">
+          <img class="color-image" [src]="'../../../assets/'+card.color+'.png'">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

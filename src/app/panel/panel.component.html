@@ -1,0 +1,36 @@
+<!-- <div class="button-container">
+  <div class="size">
+    <button mat-mini-fab (click)="card.width = card.width+1">+</button>
+    <button mat-mini-fab (click)="card.width = card.width-1">-</button>
+  </div>
+  <div class="arrows">
+    <div class="left">
+      <button mat-mini-fab (click)="card.left = card.left-5"><mat-icon>keyboard_arrow_left</mat-icon></button>
+    </div>
+    <div class="upDown">
+      <button mat-mini-fab (click)="card.top = card.top-5"><mat-icon>keyboard_arrow_up</mat-icon></button>
+      <button mat-mini-fab (click)="card.top= card.top+5"><mat-icon>keyboard_arrow_down</mat-icon></button>
+    </div>
+    <div class="right">
+      <button mat-mini-fab (click)="card.left = card.left+5"><mat-icon>keyboard_arrow_right</mat-icon></button>
+    </div>
+  </div>
+</div> -->
+<div class="slider-container">
+  -
+  <mat-slider
+  [min]="sliderMin"
+  [max]="sliderMax"
+  (mouseup)="sliderMouseUp()" [disabled]="!isInEditMode">
+  <input matSliderThumb [(ngModel)]="card.width">
+</mat-slider>
+  +
+    </div>
+<div class="button">
+  <input hidden type="file" id="img" name="img" accept="image/*" #fileInput (change)="onUpload($event)">
+  <button *ngIf="!card.imgSrc" mat-raised-button color="primary" (click)="fileInput.click()">Feltöltés</button>
+  <button *ngIf="card!.imgSrc && (isInEditMode === false)" mat-raised-button color="primary" (click)="onEdit()">Szerkesztés</button>
+  <button *ngIf="card!.imgSrc && isInEditMode" mat-raised-button color="primary" (click)="onSave()">Mentés</button>
+  <button *ngIf="card!.imgSrc && isInEditMode" mat-raised-button color="primary" (click)="onCancel()">Mégse</button>
+  <button *ngIf="card!.imgSrc && (isInEditMode === false)" mat-raised-button color="primary" (click)="onDelete()">Törlés</button>
+</div>

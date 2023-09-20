@@ -1,0 +1,51 @@
+.card {
+  width: var(--card-width);
+  border-top-left-radius: var(--card-border-radius);
+  border-top-right-radius: var(--card-border-radius);
+  border: 0 solid;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+}
+
+.card-half {
+  height: var(--card-height);
+  align-items: flex-end;
+}
+
+.card-back {
+  height: var(--card-back-height);
+  align-items: center;
+}
+
+.image-container {
+  width: var(--half-width);
+  border-style: solid;
+  position: relative;
+  overflow: hidden;
+}
+
+.half {
+  height: var(--half-height);
+  border-top-left-radius: var(--half-border-radius);
+  border-top-right-radius: var(--half-border-radius);
+  border-width:1px 1px 0.5px 1px;
+}
+
+.back {
+  height:  var(--back-height);
+  border-radius: var(--half-border-radius);
+  border-width:1px;
+}
+
+.image {
+  background-color: transparent;
+  position: relative;
+  cursor: grab;
+}
+
+.dragging {
+  cursor: move;
+}
+
+

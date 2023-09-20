@@ -1,0 +1,91 @@
+/* .background {
+  background-color: white;
+} */
+/* --card-width: 59mm;
+--card-height: 45.5mm;
+--card-border-radius: 6mm;
+--half-width: 53mm;
+--half-height: 42.5mm;
+--half-border-radius: 3mm;
+--color-width: 12mm;
+--color-height: 12mm;
+--color-border-radius: 6mm;
+--color-container-width: 12mm;
+--color-container-border-radius: 6mm;
+--het-left-top: 8mm;
+--het-left-height: 24mm;
+--het-right-top: 2mm;
+--het-right-height: 30mm;
+--nyolc-top: 8mm;
+--nyolc-height: 30mm;
+--kilenc-left-top: 8mm;
+--kilenc-left-height: 30mm;
+--kilenc-right-top: 2mm;
+--kilenc-right-height: 36mm;
+--tiz-top: 8mm;
+--tiz-height: 36mm; */
+mat-spinner {
+  margin: auto;
+}
+
+.figure-class {
+  max-width: 1024px;
+  margin: auto;
+}
+
+.card-border {
+  width: 59mm;
+  height: 91mm;
+  border: 1px solid;
+  border-radius: 6mm;
+  margin: 0.5rem;
+  display: flex;
+  justify-content: center;
+  box-shadow: 3px 4px 5px;
+  cursor: pointer;
+}
+
+.color-container {
+  display: flex;
+  margin: auto;
+  width: fit-content;
+}
+
+.figure-container {
+  display: flex;
+  flex-direction: row;
+  margin: 5px;
+  justify-content: space-around;
+}
+
+.colors {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+}
+
+.color-image {
+  height: 100%;
+  margin: auto;
+}
+
+mat-tab-group {
+  width: 100%;
+}
+
+#card {
+  width: fit-content;
+  height: fit-content;
+  margin: auto;
+}
+
+.card-border {
+  display: flex;
+  justify-content: center;
+}
+
+.bottom {
+  transform: rotate(180deg);
+}

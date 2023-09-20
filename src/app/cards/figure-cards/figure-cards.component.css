@@ -1,0 +1,82 @@
+.card {
+  width: var(--card-width);
+  height: var(--card-height);
+  border-top-left-radius: var(--card-border-radius);
+  border-top-right-radius: var(--card-border-radius);
+  border: 0 solid;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.half {
+  width: var(--half-width);
+  height: var(--half-height);
+  border-top-left-radius: var(--half-border-radius);
+  border-top-right-radius: var(--half-border-radius);
+  border-width:1px 1px 0.5px 1px;
+  border-style: solid;
+  position: relative;
+  overflow: hidden;
+}
+
+.color {
+  width: var(--color-width);
+  height: var(--color-height);
+  border-radius: var(--card-border-radius);
+  display: flex;
+  justify-content: center;
+  border: 0;
+  border-style: solid;
+  background-color: rgba(255, 255, 255, 0.4);
+  margin: 0;
+  position: absolute;
+}
+
+.also {
+  bottom: 0;
+  left: 0;
+}
+
+.felso {
+  top: 0;
+  left: 0;
+}
+
+.kiraly {
+  top: 0;
+  right: 0;
+}
+
+.asz-left {
+  top: 0;
+  left: 0;
+  transform: rotate(-30deg);
+}
+
+.asz-right {
+  top: 0;
+  right: 0;
+  transform: rotate(30deg);
+}
+
+.image {
+  background-color: transparent;
+  position: relative;
+  cursor: grab;
+}
+
+.color-image{
+  height: 80%;
+  margin: auto;
+}
+
+.crown-image{
+  width: 80%;
+  margin: auto;
+}
+
+.dragging {
+  cursor: move;
+}

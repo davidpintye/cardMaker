@@ -1,0 +1,24 @@
+<h1>Sign up</h1>
+<form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+  <mat-form-field appearance="fill">
+    <mat-label>Email:</mat-label>
+    <input type="email" matInput id="email" formControlName="email" />
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label for="password">Jelszó:</mat-label>
+    <input type="password" matInput id="password" formControlName="password" />
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label for="password">Jelszó ismét:</mat-label>
+    <input type="password" matInput id="confirmPassword" formControlName="confirmPassword" [errorStateMatcher]="matcher"/>
+  </mat-form-field>
+  <mat-error *ngIf="signupForm.hasError('notSame') && signupForm.get('confirmPassword')?.touched">
+    Passwords do not match
+  </mat-error>
+  <mat-error *ngIf="errorMessage">
+    Passwords do not match
+  </mat-error>
+  <button type="submit" [disabled]="signupForm.invalid" mat-flat-button>
+    Regisztráció
+  </button>
+</form>

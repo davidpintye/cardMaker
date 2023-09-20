@@ -1,0 +1,27 @@
+.card {
+  width: 59mm;
+  height: 91mm;
+  border: 0 solid;
+  border-top-left-radius: 6mm;
+  border-top-right-radius: 6mm;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.half {
+  width: 53mm;
+  height: 85mm;
+  border-width:1px;
+  border-style: solid;
+  border-radius: 3mm;
+  position: relative;
+  overflow: hidden;
+}
+
+.image {
+  background-color: transparent;
+  position: relative;
+}
+

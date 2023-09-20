@@ -1,0 +1,21 @@
+<mat-toolbar>
+  <button *ngIf="isMenu" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" (click)="drawer.toggle()">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>Egyedi magyar kártya</span>
+  <span class="example-spacer"></span>
+</mat-toolbar>
+<mat-drawer-container class="example-container">
+  <mat-drawer #drawer class="example-sidenav" mode="side">
+    <mat-nav-list>
+      <a mat-list-item routerLink="/home">Kezdőlap</a>
+      <a *ngIf="!authState" mat-list-item routerLink="/signup">Regisztráció</a>
+      <a *ngIf="!authState" mat-list-item routerLink="/login">Bejelentkezés</a>
+      <a mat-list-item routerLink="/cardeditor">Szerkesztő</a>
+      <a mat-list-item routerLink="/printer">Nyomtatás</a>
+      <a mat-list-item *ngIf="authState" (click)="onLogout()">Kijelentkezés</a>
+      <a mat-list-item href="#">Kapcsolat</a>
+    </mat-nav-list>
+  </mat-drawer>
+  <router-outlet></router-outlet>
+</mat-drawer-container>

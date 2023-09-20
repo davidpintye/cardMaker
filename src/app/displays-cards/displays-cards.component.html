@@ -1,0 +1,245 @@
+<mat-spinner *ngIf="!cards"></mat-spinner>
+<div *ngIf="cards">
+
+  <div
+    #container
+    class="figure-class"
+    *ngFor="
+      let figureCards of [
+        this.cards.also,
+        this.cards.felso,
+        this.cards.kiraly,
+        this.cards.asz
+      ]
+    "
+  >
+    <div class="figure-container">
+      <div
+        class="card-border"
+        [ngStyle]="cardBorder"
+        *ngFor="
+          let card of [
+            figureCards.piros,
+            figureCards.tok,
+            figureCards.zold,
+            figureCards.makk
+          ];
+          let i = index
+        "
+        (click)="onClick(i, figureCards.label)"
+      >
+        <div #element id="card">
+          <div class="top">
+            <app-figure-cards
+              #app1
+              [scale]="this.scale"
+              [cardIn]="card"
+            ></app-figure-cards>
+          </div>
+          <div class="bottom">
+            <app-figure-cards
+              #app2
+              [scale]="this.scale"
+              [cardIn]="card"
+            ></app-figure-cards>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="figure-class"
+    *ngFor="
+      let numbersCards of [
+        this.cards.vii,
+        this.cards.viii,
+        this.cards.ix,
+        this.cards.x
+      ]
+    "
+  >
+    <div class="figure-container">
+      <div
+        class="card-border"
+        [ngStyle]="cardBorder"
+        *ngFor="
+          let card of [
+            numbersCards.piros,
+            numbersCards.tok,
+            numbersCards.zold,
+            numbersCards.makk
+          ];
+          let i = index
+        "
+        (click)="onClick(i, numbersCards.label)"
+      >
+        <div #element id="card">
+          <div class="top">
+            <app-number-cards
+              #app3
+              [scale]="this.scale"
+              [cardIn]="card"
+            ></app-number-cards>
+          </div>
+          <div class="bottom">
+            <app-number-cards
+              #app4
+              [scale]="this.scale"
+              [cardIn]="card"
+            ></app-number-cards>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="figure-class"
+    *ngFor="
+      let otherCards of [
+        this.cards.others,
+      ]
+    "
+  >
+    <div class="figure-container">
+      <div
+        class="card-border"
+        [ngStyle]="cardBorder"
+        *ngFor="
+          let card of [
+            otherCards.back,
+            otherCards.plus
+          ];
+          let i = index
+        "
+        (click)="onClick(i, otherCards.label)"
+      >
+        <div #element id="card">
+          <div class="top">
+            <app-others
+              #app5
+              [scale]="this.scale"
+              [cardIn]="card"
+            ></app-others>
+          </div>
+          <div class="bottom" *ngIf="!(card.color=='back')">
+            <app-others
+              #app6
+              [scale]="this.scale"
+              [cardIn]="card"
+            ></app-others>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- <div class="figure-container">
+    <div class="card-border" *ngFor="let card of Object.values(felso)">
+    <div #element id="card">
+      <div class="top">
+        <app-also-felso-kiraly [card]="card" [cardType]="'felso'"></app-also-felso-kiraly>
+      </div>
+      <div class="bottom">
+        <app-also-felso-kiraly [card]="card" [cardType]="'felso'"></app-also-felso-kiraly>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="figure-container">
+  <div class="card-border" *ngFor="let card of Object.values(kiraly)">
+    <div #element id="card">
+      <div class="top">
+        <app-also-felso-kiraly [card]="card" [cardType]="'kiraly'"></app-also-felso-kiraly>
+      </div>
+      <div class="bottom">
+        <app-also-felso-kiraly [card]="card" [cardType]="'kiraly'"></app-also-felso-kiraly>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="figure-container">
+  <div class="card-border" *ngFor="let card of Object.values(asz)">
+    <div #element id="card">
+      <div class="top">
+        <app-also-felso-kiraly [card]="card" [cardType]="'asz'"></app-also-felso-kiraly>
+      </div>
+      <div class="bottom">
+        <app-also-felso-kiraly [card]="card" [cardType]="'asz'"></app-also-felso-kiraly>
+      </div>
+    </div>
+  </div>
+</div> -->
+<!-- <div class="figure-container">
+  <div class="card-border" [ngStyle]="cardBorder" *ngFor="let card of Object.values([
+    this.cards.X.piros,
+    this.cards.X.tok,
+    this.cards.X.zold,
+    this.cards.X.makk,
+  ])">
+    <div #element id="card">
+      <div class="top">
+        <app-number-cards [card]="card" [cardType]="'het'" [scale]="this.scale"></app-number-cards>
+      </div>
+      <div class="bottom">
+        <app-number-cards [card]="card" [cardType]="'het'" [scale]="this.scale"></app-number-cards>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="figure-container">
+  <div class="card-border" [ngStyle]="cardBorder" *ngFor="let card of Object.values([
+    this.cards.X.piros,
+    this.cards.X.tok,
+    this.cards.X.zold,
+    this.cards.X.makk,
+  ])">
+    <div #element id="card">
+      <div class="top">
+        <app-number-cards [card]="card" [cardType]="'nyolc'" [scale]="this.scale"></app-number-cards>
+      </div>
+      <div class="bottom">
+        <app-number-cards [card]="card" [cardType]="'nyolc'" [scale]="this.scale"></app-number-cards>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="figure-container">
+  <div class="card-border" [ngStyle]="cardBorder" *ngFor="let card of Object.values([
+    this.cards.X.piros,
+    this.cards.X.tok,
+    this.cards.X.zold,
+    this.cards.X.makk,
+  ])">
+    <div #element id="card">
+      <div class="top">
+        <app-number-cards [card]="card" [cardType]="'kilenc'" [scale]="this.scale"></app-number-cards>
+      </div>
+      <div class="bottom">
+        <app-number-cards [card]="card" [cardType]="'kilenc'" [scale]="this.scale"></app-number-cards>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="figure-container">
+  <div class="card-border" [ngStyle]="cardBorder" *ngFor="let card of Object.values([
+    this.cards.X.piros,
+    this.cards.X.tok,
+    this.cards.X.zold,
+    this.cards.X.makk,
+  ])">
+    <div #element id="card">
+      <div class="top">
+        <app-number-cards [card]="card" [cardType]="'tiz'" [scale]="this.scale"></app-number-cards>
+      </div>
+      <div class="bottom">
+        <app-number-cards [card]="card" [cardType]="'tiz'" [scale]="this.scale"
+          [ngStyle]="{'right': 0}"></app-number-cards>
+      </div>
+    </div>
+  </div>
+</div> -->

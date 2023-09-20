@@ -1,0 +1,432 @@
+<mat-spinner *ngIf="!isLoaded"></mat-spinner>
+<div *ngIf="isLoaded" class="container">
+
+  <button [disabled]="!!pbValue[0]" mat-raised-button (click)="downloadA4(sheetsElArray.slice(0,4), 0)">
+    Előlapok letöltése (A4)
+  </button>
+  <mat-progress-bar *ngIf="pbValue[0]" mode="determinate" [value]="pbValue[0]"></mat-progress-bar>
+
+  <button [disabled]="!!pbValue[1]" mat-raised-button (click)="downloadA4(sheetsElArray.slice(4), 1)">
+    Hátlapok letöltése (A4)
+  </button>
+  <mat-progress-bar *ngIf="pbValue[1]" mode="determinate" [value]="pbValue[1]"></mat-progress-bar>
+
+  <button [disabled]="(!!pbValue[2])" mat-raised-button (click)="downloadCards(cardsElArray.slice(0,35),  2)">
+    Előlapok letöltése (59mm x 91mm)
+  </button>
+  <mat-progress-bar *ngIf="(pbValue[2])" mode="determinate" [value]="pbValue[2]"></mat-progress-bar>
+
+  <button [disabled]="(!!pbValue[3])" mat-raised-button (click)="downloadCards(cardsElArray.slice(35,36), 3)">
+    Hátlap letöltése (59mm x 91mm)
+  </button>
+  <mat-progress-bar *ngIf="(pbValue[3])" mode="determinate" [value]="pbValue[3]"></mat-progress-bar>
+
+  <div class="sheets"
+    *ngFor="
+      let content of [
+        [content0, content1],
+        [content2, content3],
+        [content4, content5],
+        [content6],
+        [content7, content7],
+        [content7, content7],
+        [content7, content7],
+        [content7]
+      ]
+    "
+  >
+    <div class="sheet" #sheet>
+      <div class="row">
+        <ng-container *ngTemplateOutlet="content[0]"></ng-container>
+      </div>
+      <div class="row">
+        <ng-container *ngTemplateOutlet="content[1]"></ng-container>
+      </div>
+    </div>
+    <div class="row">
+      <ng-container *ngTemplateOutlet="content[0]"></ng-container>
+    </div>
+    <div class="row">
+      <ng-container *ngTemplateOutlet="content[1]"></ng-container>
+    </div>
+  </div>
+
+  <ng-template #content0>
+    <div
+      class="card"
+      #cardDiv
+
+      *ngFor="
+        let card of [
+          cards.also.piros,
+          cards.also.tok,
+          cards.also.zold,
+          cards.also.makk,
+          cards.felso.piros
+        ]
+      "
+    >
+      <div class="top">
+        <app-figure-cards [cardIn]="card"></app-figure-cards>
+      </div>
+      <div class="bottom">
+        <app-figure-cards [cardIn]="card"></app-figure-cards>
+      </div>
+    </div>
+  </ng-template>
+
+  <ng-template #content1>
+    <div
+      class="card"
+
+      #cardDiv
+      *ngFor="
+        let card of [
+          cards.felso.tok,
+          cards.felso.zold,
+          cards.felso.makk,
+          cards.kiraly.piros,
+          cards.kiraly.tok
+        ]
+      "
+    >
+      <div class="top">
+        <app-figure-cards [cardIn]="card"></app-figure-cards>
+      </div>
+      <div class="bottom">
+        <app-figure-cards [cardIn]="card"></app-figure-cards>
+      </div>
+    </div>
+  </ng-template>
+
+  <ng-template #content2>
+    <div
+      class="card"
+
+      #cardDiv
+      *ngFor="
+        let card of [
+          cards.kiraly.zold,
+          cards.kiraly.makk,
+          cards.asz.piros,
+          cards.asz.tok,
+          cards.asz.zold
+        ]
+      "
+    >
+      <div class="top">
+        <app-figure-cards [cardIn]="card"></app-figure-cards>
+      </div>
+      <div class="bottom">
+        <app-figure-cards [cardIn]="card"></app-figure-cards>
+      </div>
+    </div>
+  </ng-template>
+
+  <ng-template #content3>
+    <div class="card"  #cardDiv>
+      <div class="top">
+        <app-figure-cards [cardIn]="cards.asz.makk"></app-figure-cards>
+      </div>
+      <div class="bottom">
+        <app-figure-cards [cardIn]="cards.asz.makk"></app-figure-cards>
+      </div>
+    </div>
+    <div
+      class="card"
+
+      #cardDiv
+      *ngFor="
+        let card of [
+          cards.vii.piros,
+          cards.vii.tok,
+          cards.vii.zold,
+          cards.vii.makk
+        ]
+      "
+    >
+      <div class="top">
+        <app-number-cards [cardIn]="card"></app-number-cards>
+      </div>
+      <div class="bottom">
+        <app-number-cards [cardIn]="card"></app-number-cards>
+      </div>
+    </div>
+  </ng-template>
+
+  <ng-template #content4>
+    <div
+      class="card"
+
+      #cardDiv
+      *ngFor="
+        let card of [
+          cards.viii.piros,
+          cards.viii.tok,
+          cards.viii.zold,
+          cards.viii.makk,
+          cards.ix.piros
+        ]
+      "
+    >
+      <div class="top">
+        <app-number-cards [cardIn]="card"></app-number-cards>
+      </div>
+      <div class="bottom">
+        <app-number-cards [cardIn]="card"></app-number-cards>
+      </div>
+    </div>
+  </ng-template>
+
+  <ng-template #content5>
+    <div
+      class="card"
+
+      #cardDiv
+      *ngFor="
+        let card of [
+          cards.ix.tok,
+          cards.ix.zold,
+          cards.ix.makk,
+          cards.x.piros,
+          cards.x.tok
+        ]
+      "
+    >
+      <div class="top">
+        <app-number-cards [cardIn]="card"></app-number-cards>
+      </div>
+      <div class="bottom">
+        <app-number-cards [cardIn]="card"></app-number-cards>
+      </div>
+    </div>
+  </ng-template>
+
+  <ng-template #content6>
+    <div
+      class="card"
+
+      #cardDiv
+      *ngFor="let card of [cards.x.zold, cards.x.makk]"
+    >
+      <div class="top">
+        <app-number-cards [cardIn]="card"></app-number-cards>
+      </div>
+      <div class="bottom">
+        <app-number-cards [cardIn]="card"></app-number-cards>
+      </div>
+    </div>
+    <div class="card"  #cardDiv>
+      <div class="top">
+        <app-others [cardIn]="cards.others.plus"></app-others>
+      </div>
+      <div class="bottom">
+        <app-others [cardIn]="cards.others.plus"></app-others>
+      </div>
+    </div>
+    <div class="card"  #cardDiv>
+      <div class="top">
+        <app-others [cardIn]="emptyCard"></app-others>
+      </div>
+      <div class="bottom">
+        <app-others [cardIn]="emptyCard"></app-others>
+      </div>
+    </div>
+    <div class="card"  #cardDiv>
+      <div class="top">
+        <app-others [cardIn]="emptyCard"></app-others>
+      </div>
+      <div class="bottom">
+        <app-others [cardIn]="emptyCard"></app-others>
+      </div>
+    </div>
+  </ng-template>
+
+  <ng-template #content7>
+    <div
+      class="card"
+      #cardDiv
+      *ngFor="let card of backCards"
+    >
+      <div class="card-border">
+        <div class="top">
+          <app-others [cardIn]="card"></app-others>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+</div>
+<!-- <div class="sheet" #sheet1 id="sheet1">
+  <div class="row">
+    <div
+    id="card" #card
+    *ngFor="
+    let card of [
+    cards.kiraly.zold,
+    cards.kiraly.makk,
+    cards.asz.piros,
+    cards.asz.tok,
+    cards.asz.zold
+    ]
+        "
+        >
+        <div class="top">
+          <app-figure-cards [cardIn]="card"></app-figure-cards>
+        </div>
+        <div class="bottom">
+          <app-figure-cards [cardIn]="card"></app-figure-cards>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div id="card" #card>
+        <div class="top">
+          <app-figure-cards [cardIn]="cards.asz.makk"></app-figure-cards>
+        </div>
+        <div class="bottom">
+          <app-figure-cards [cardIn]="cards.asz.makk"></app-figure-cards>
+        </div>
+      </div>
+      <div
+        id="card" #card
+        *ngFor="
+          let card of [
+            cards.vii.piros,
+            cards.vii.tok,
+            cards.vii.zold,
+            cards.vii.makk
+          ]
+        "
+      >
+        <div class="top">
+          <app-number-cards [cardIn]="card"></app-number-cards>
+        </div>
+        <div class="bottom">
+          <app-number-cards [cardIn]="card"></app-number-cards>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="sheet" #sheet2 id="sheet2">
+    <div class="row">
+      <div
+        id="card" #card
+        *ngFor="
+          let card of [
+            cards.viii.piros,
+            cards.viii.tok,
+            cards.viii.zold,
+            cards.viii.makk,
+            cards.ix.piros
+          ]
+        "
+      >
+        <div class="top">
+          <app-number-cards [cardIn]="card"></app-number-cards>
+        </div>
+        <div class="bottom">
+          <app-number-cards [cardIn]="card"></app-number-cards>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div
+        id="card" #card
+        *ngFor="
+          let card of [
+            cards.ix.tok,
+            cards.ix.zold,
+            cards.ix.makk,
+            cards.x.piros,
+            cards.x.tok
+          ]
+        "
+      >
+        <div class="top">
+          <app-number-cards [cardIn]="card"></app-number-cards>
+        </div>
+        <div class="bottom">
+          <app-number-cards [cardIn]="card"></app-number-cards>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="sheet" #sheet3 id="sheet3">
+    <div class="row">
+      <div id="card" #card *ngFor="let card of [cards.x.zold, cards.x.makk]">
+        <div class="top">
+          <app-number-cards [cardIn]="card"></app-number-cards>
+        </div>
+        <div class="bottom">
+          <app-number-cards [cardIn]="card"></app-number-cards>
+        </div>
+      </div>
+      <div id="card" #card>
+        <div class="top">
+          <app-others [cardIn]="cards.others.back"></app-others>
+        </div>
+      </div>
+      <div id="card" #card>
+        <div class="top">
+          <app-others [cardIn]="cards.others.plus"></app-others>
+        </div>
+        <div class="bottom">
+          <app-others [cardIn]="cards.others.plus"></app-others>
+        </div>
+      </div>
+      <div id="card" #card>
+        <div class="top">
+          <app-others [cardIn]="cards.others.plus"></app-others>
+        </div>
+        <div class="bottom">
+          <app-others [cardIn]="cards.others.plus"></app-others>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="isLoaded" class="container">
+  <button
+    #button
+    mat-raised-button
+    (click)="downloadA4([sheet0, sheet0, sheet0, sheet3])"
+  >
+    Hátlapok letöltése (A4)
+  </button>
+  <div class="sheet" #sheet0>
+    <div class="row">
+      <div class="card-border" *ngFor="let card of backCards">
+        <div id="card" #card>
+          <div class="top">
+            <app-others [cardIn]="card"></app-others>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="card-border" *ngFor="let card of backCards">
+        <div id="card" #card>
+          <div class="top">
+            <app-others [cardIn]="card"></app-others>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="sheet" #sheet3 id="sheet3">
+    <div class="row">
+      <div class="card-border" *ngFor="let card of backCards">
+        <div id="card" #card>
+          <div class="top">
+            <app-others [cardIn]="card"></app-others>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button #button mat-raised-button (click)="downloadCards(cardsElArray)">
+    Pakli nyomtatása
+  </button>
+</div> -->

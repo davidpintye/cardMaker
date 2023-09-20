@@ -1,0 +1,10 @@
+h1 {
+  text-align: center;
+  margin: 20px;
+}
+form {
+  margin: auto;
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+}

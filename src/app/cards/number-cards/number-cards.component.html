@@ -1,0 +1,58 @@
+<div class="card">
+  <div class="inner-border">
+    <div class="half" #half>
+      <img class="image"
+        [src]="card.imgSrc"
+        alt=""
+        [ngStyle]="{'width': card.width + '%', 'top': card.top*this.scale + 'px', 'left': card.left*this.scale + 'px'}"
+        draggable="true"
+        (mousedown)="onMouseDown($event)"
+        (mouseup)="onMouseUp()"
+        (touchstart)="onTouchStart($event)"
+        (touchend)="onTouchEnd()"
+        (wheel) = "onWheel($event)"
+        #image>
+      <span class="number" [ngStyle]="{'transform': 'scale('+this.scale+')'}">{{this.card.figure | uppercase}}</span>
+      <div class="color-container" #left  [ngStyle]="{'left': 0}">
+        <div *ngFor="let color of colorsL">
+          <div class="color"
+            [ngStyle]="{
+              'top': color+'mm',
+              'transform':
+                'scaleX('+ (card.color == 'zold' || card.color == 'makk'? -1:1)+ ') rotate('+ (card.color == 'zold' || card.color == 'makk'? 90:0)+ 'deg)'}">
+            <img class="color-image" [src]="'../../../assets/'+card.color+'.png'">
+          </div>
+        </div>
+      </div>
+      <div class="color-container" #right  [ngStyle]="{'right': 0}">
+        <div *ngFor="let color of colorsR">
+          <div class="color" [ngStyle]="{
+            'top': color+'mm',
+            'transform': 'rotate('+ (card.color == 'zold' || card.color == 'makk'? 90:0)+ 'deg)'}">
+            <img class="color-image" [src]="'../../../assets/'+card.color+'.png'">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+        <!-- <div *ngFor="let color of colors">
+          <div class="color" [ngStyle]="{
+            'top': color+'mm',
+            'right': 0,
+            'transform': 'scaleX('+ (card.colorSrc == '../../assets/z.png' || card.colorSrc == '../../assets/m.png'? -1:1)+ ') rotate('+ (card.colorSrc == '../../assets/z.png' || card.colorSrc == '../../assets/m.png'? 90:0)+ 'deg)'}">
+            <img class="color-image" [src]="card.colorSrc">
+          </div>
+        </div>
+      <div class="color-container" [ngStyle]="{'top': 8+'mm', 'right': 0}">
+        <div *ngFor="let color of colors">
+          <div class="color" [ngStyle]="{
+            'top': color+'mm',
+            'right': 0,
+            'transform': 'rotate('+ (card.colorSrc == '../../assets/z.png' || card.colorSrc == '../../assets/m.png'? 90:0)+ 'deg)'}">
+            <img class="color-image" [src]="card.colorSrc">
+          </div>
+        </div>
+      </div> -->

@@ -1,0 +1,52 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: rgb(255, 255, 255);
+}
+
+button {
+  margin: 10px;
+}
+
+mat-spinner {
+  margin: auto;
+}
+
+.sheets {
+  z-index: -1 !important;
+}
+
+.sheet {
+  display: none;
+  width: 297mm;
+  height: 210mm;
+  border: 1px solid;
+  margin: 0 auto;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.card-border {
+  display: flex;
+  justify-content: center;
+  width: 59mm;
+  height: 91mm;
+  border: 1px dashed;
+  border-color: rgba(0, 0, 0, 0.25);
+  border-radius: 6mm;
+  overflow: hidden;
+  margin: -1px;
+}
+
+.border {
+  border: 1px dashed;
+}
+
+.bottom {
+  transform: rotate(180deg);
+}

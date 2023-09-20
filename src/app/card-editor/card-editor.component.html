@@ -1,0 +1,78 @@
+<mat-spinner *ngIf="!isLoaded"></mat-spinner>
+<div *ngIf="isLoaded" class="mat-tab-group-container">
+  <mat-tab-group
+    [selectedIndex]="figureIndex"
+    (selectedIndexChange)="figureIndex = $event"
+  >
+    <mat-tab
+      *ngFor="
+        let cardsFigures of [
+          cards.also,
+          cards.felso,
+          cards.kiraly,
+          cards.asz,
+          cards.vii,
+          cards.viii,
+          cards.ix,
+          cards.x
+        ]
+      "
+      [label]="cardsFigures.label"
+    >
+      <div class="container">
+        <div class="color-container">
+          <mat-tab-group
+            [selectedIndex]="colorIndex"
+            (selectedIndexChange)="colorIndex = $event"
+          >
+            <mat-tab
+              *ngFor="
+                let cardsFiguresColor of [
+                  cardsFigures.piros,
+                  cardsFigures.tok,
+                  cardsFigures.zold,
+                  cardsFigures.makk
+                ];
+                let i = index
+              "
+            >
+              <ng-template mat-tab-label>
+                <div class="colors">
+                  <img [src]="colorArr[i]" alt="" class="color-image" />
+                </div>
+              </ng-template>
+              <app-cards [cardsFiguresColor]="cardsFiguresColor"></app-cards>
+            </mat-tab>
+          </mat-tab-group>
+        </div>
+        <hr />
+      </div>
+    </mat-tab>
+    <mat-tab label="Hátlap, +1">
+      <div class="container">
+        <div class="color-container">
+          <mat-tab-group
+            [selectedIndex]="colorIndex"
+            (selectedIndexChange)="colorIndex = $event"
+          >
+            <mat-tab
+              *ngFor="
+                let card of [cards.others.back, cards.others.plus];
+                let i = index
+              "
+            >
+              <ng-template mat-tab-label>
+                <div class="colors">
+                  {{cards.others.label.split(', ')[i]}}
+                </div>
+              </ng-template>
+              <app-cards [cardsFiguresColor]="card"></app-cards>
+            </mat-tab>
+          </mat-tab-group>
+        </div>
+        <hr />
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+</div>
+<app-displays-cards [cards]="cards" #displayComponent></app-displays-cards>

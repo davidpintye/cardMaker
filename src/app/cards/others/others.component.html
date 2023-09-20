@@ -1,0 +1,17 @@
+<div class="card" *ngIf="card" [ngClass]="card.color == 'plus' || card.color == 'empty' ? 'card-half' : 'card-back'">
+  <div class="inner-border">
+    <div class="image-container" [ngClass]="card.color == 'plus' || card.color == 'empty' ? 'half' : 'back'" #half>
+      <img class="image"
+        [src]="card.imgSrc"
+        alt=""
+        [ngStyle]="{'width': card.width + '%', 'top': card.top*this.scale + 'px', 'left': card.left*this.scale + 'px'}"
+        draggable="true"
+        (mousedown)="onMouseDown($event)"
+        (mouseup)="onMouseUp()"
+        (touchstart)="onTouchStart($event)"
+        (touchend)="onTouchEnd()"
+        (wheel) = "onWheel($event)"
+        #image>
+    </div>
+  </div>
+</div>
