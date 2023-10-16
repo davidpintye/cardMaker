@@ -31,7 +31,7 @@ export class StorageService {
   }
 
   async getFileAsBase64(filePath: string): Promise<string> {
-    const ref = this.storage.ref('F4QfeqBx8SPhaSwxZbuKSUgkRsg1/project0/Koala_-_Nur-Nuru-Bin.jpg');
+    const ref = this.storage.ref(filePath);
     const file = await ref.getDownloadURL().toPromise();
     const response = await fetch(file);
     const blob = await response.blob();

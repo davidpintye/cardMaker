@@ -43,9 +43,10 @@ export class CardEditorComponent implements OnInit, AfterViewInit {
     this.authService.isAuthenticated$().subscribe((authState: boolean) => {
       this.fetchCards(authState);
     })
-    this.othersArray = [this.cards.others.back, this.cards.others.plus];
 
     this.cardsService.selectedFigure.subscribe((data: any) => {
+      console.log(data);
+      
       this.figureIndex = NaN;
       this.colorIndex = NaN;
       switch (data.label) {
@@ -81,7 +82,7 @@ export class CardEditorComponent implements OnInit, AfterViewInit {
           this.figureIndex = 7;
           break;
 
-        case 'Others':
+        case 'Hátlap, +1':
           this.figureIndex = 8;
           break;
 
@@ -90,13 +91,13 @@ export class CardEditorComponent implements OnInit, AfterViewInit {
       }
 
       this.colorIndex = data.colorIndex;
+      
       window.scrollTo({ top: 0, behavior: 'smooth' })
     })
   }
 
   ngAfterViewInit(): void {
     this.subjectsService.cardUpdatedSubject.subscribe(() => this.fetchCards(this.authService.isAuthenticated()));
-    console.log(this.othersArray);
   }
 
   fetchCards(authState: boolean) {
